@@ -1,0 +1,889 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Studies E-Learning Portal</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2980b9;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-size: 1.4rem;
+        }
+        
+        .login-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .login-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+        
+        .login-container h2 {
+            margin-bottom: 30px;
+            color: var(--dark-color);
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 15px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .error-message {
+            color: var(--accent-color);
+            margin-top: 15px;
+            text-align: center;
+            display: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .loading {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--secondary-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        .loading p {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        /* Dashboard Styles */
+        .dashboard {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .dashboard-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-content {
+            padding: 50px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .dashboard-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .dashboard-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .dashboard-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .dashboard-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .dashboard-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .encrypted-btn {
+            background-color: var(--accent-color);
+        }
+        
+        .encrypted-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .user-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .user-info i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            background: rgba(52, 152, 219, 0.1);
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .user-info h2 {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .user-info p {
+            color: #666;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            opacity: 1;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Main Landing Page (Visible by default) -->
+    <div id="landingPage">
+        <header>
+            <div class="container header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    Social Studies Portal
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#login">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Advanced Social Studies Learning Platform</h1>
+                <p>Access interactive curriculum, collaborate with peers, and enhance your understanding of global societies through our innovative digital platform.</p>
+                <a href="#login" class="btn">Student Login</a>
+            </div>
+        </section>
+        
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Our Learning Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>Global Curriculum</h3>
+                        <p>Comprehensive coverage of world cultures, histories, and political systems with interactive content.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Expert Instruction</h3>
+                        <p>Learn from certified educators specializing in social studies education and digital pedagogy.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <h3>Immersive Learning</h3>
+                        <p>Virtual field trips and 3D historical reconstructions bring social studies concepts to life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="login-section" id="login">
+            <div class="container">
+                <div class="login-container">
+                    <h2><i class="fas fa-sign-in-alt"></i> Student Portal Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="studentId"><i class="fas fa-id-card"></i> Student ID</label>
+                            <input type="text" id="studentId" placeholder="Enter your student ID (e.g., ST09/001/26)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="login-btn">Access Learning Portal</button>
+                        <div class="error-message" id="errorMessage">
+                            <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please try again.
+                        </div>
+                        <div class="loading" id="loadingIndicator">
+                            <div class="loading-spinner"></div>
+                            <p>Authenticating your credentials...</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>About Our Program</h3>
+                        <p>Our accredited Social Studies program combines traditional pedagogy with cutting-edge digital learning technologies to create an engaging educational experience.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Program Features</a></li>
+                            <li><a href="#login">Student Login</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>socialstudies@academy.edu</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>(555) 123-4567</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>456 Education Blvd, Learning City</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Social Studies E-Learning Academy. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Dashboard Page (Hidden by default) -->
+    <div id="dashboardPage" class="dashboard">
+        <header class="dashboard-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    Student Dashboard
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+            <div class="container">
+                <div class="user-info">
+                    <i class="fas fa-user-graduate"></i>
+                    <h2 id="welcomeStudent">Welcome, Student</h2>
+                    <p>Social Studies E-Learning Portal</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Google Classroom</h3>
+                        <p>Access your virtual classroom with all course materials and assignments</p>
+                        <a href="#" class="dashboard-btn encrypted-btn" id="classroomBtn">
+                            <i class="fas fa-external-link-alt"></i> Enter Classroom
+                        </a>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Course Materials</h3>
+                        <p>Download textbooks, presentations, and supplementary learning resources</p>
+                        <a href="#" class="dashboard-btn">
+                            <i class="fas fa-download"></i> Access Materials
+                        </a>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Assignments</h3>
+                        <p>View and submit your coursework with automatic deadline tracking</p>
+                        <a href="#" class="dashboard-btn">
+                            <i class="fas fa-clipboard-list"></i> View Assignments
+                        </a>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Progress Tracker</h3>
+                        <p>Monitor your academic performance with detailed analytics</p>
+                        <a href="#" class="dashboard-btn">
+                            <i class="fas fa-chart-pie"></i> View Progress
+                        </a>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Academic Calendar</h3>
+                        <p>Important dates, deadlines, and school events at a glance</p>
+                        <a href="#" class="dashboard-btn">
+                            <i class="fas fa-calendar-day"></i> View Calendar
+                        </a>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Help Center</h3>
+                        <p>Technical support and academic assistance resources</p>
+                        <a href="#" class="dashboard-btn">
+                            <i class="fas fa-life-ring"></i> Get Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="copyright">
+                    <p>&copy; 2023 Social Studies E-Learning Academy. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Student credentials from the document
+        const studentCredentials = {
+            "ST09/001/26": { password: "26L7aB9", name: "Louisa Aboagye" },
+            "ST09/002/26": { password: "26FG8y2", name: "Franklin Adu Gyamfi" },
+            "ST09/003/26": { password: "26JO3d5", name: "Jedidiah Afriyie Osei Owusu" },
+            "ST09/004/26": { password: "26VD4u7", name: "Vanessa Agyemang Duah" },
+            "ST09/005/26": { password: "26GT6r1", name: "Gertrude Amponsem" },
+            "ST09/006/26": { password: "26CA9s3", name: "Christabel Antwi" },
+            "ST09/007/26": { password: "26SA5h8", name: "Shadrack Antwi" },
+            "ST09/008/26": { password: "26RJ4k6", name: "Ransford Appiah Kubi Junior" },
+            "ST09/009/26": { password: "26SB2m9", name: "Sabina Awasela" },
+            "ST09/010/26": { password: "26JA3n5", name: "Jonathan Boahen Adu" },
+            "ST09/011/26": { password: "26KA7p2", name: "Kingsley Boakye Adu" },
+            "ST09/012/26": { password: "26KE4f8", name: "Kingsley Effisah" },
+            "ST09/013/26": { password: "26RE1t6", name: "Richmond Effisah" },
+            "ST09/014/26": { password: "26FL5x9", name: "Felixlina Erskine" },
+            "ST09/015/26": { password: "26YA3w7", name: "Yaa Asantewaa Krampah" },
+            "ST09/016/26": { password: "26PM8b4", name: "Prince Mimpong" },
+            "ST09/017/26": { password: "26KO2v6", name: "Kluivert Opoku Sarpong" },
+            "ST09/018/26": { password: "26OB7c3", name: "Blessing Osei" },
+            "ST09/019/26": { password: "26OA9d1", name: "Alex Owusu Baffour" },
+            "ST09/020/26": { password: "26KB4j7", name: "Kelvin Owusu Boakye" },
+            "ST09/021/26": { password: "26DM5g2", name: "Daniella Sefa McJank" },
+            "ST09/022/26": { password: "26AB8q4", name: "Achiaa Blessing Yeboah" },
+            "ST09/023/26": { password: "26YM3n6", name: "Maritha Yeboah" }
+        };
+
+        // Encrypted Google Classroom link (Base64 encoded)
+        const encryptedClassroomLink = "aHR0cHM6Ly9jbGFzc3Jvb20uZ29vZ2xlLmNvbS9jL044ODQ2ODU2MzM4NTY2P2NqYz02emxtdXVyeQ==";
+        
+        // DOM elements
+        const landingPage = document.getElementById('landingPage');
+        const dashboardPage = document.getElementById('dashboardPage');
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const classroomBtn = document.getElementById('classroomBtn');
+        const welcomeStudent = document.getElementById('welcomeStudent');
+        
+        // Login form handling
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const studentId = document.getElementById('studentId').value.trim().toUpperCase();
+            const password = document.getElementById('password').value;
+            
+            // Hide error message if previously shown
+            errorMessage.style.display = 'none';
+            
+            if (studentCredentials[studentId] && studentCredentials[studentId].password === password) {
+                // Show loading indicator
+                loadingIndicator.style.display = 'flex';
+                
+                // Simulate authentication delay
+                setTimeout(function() {
+                    // Hide landing page and show dashboard
+                    landingPage.style.display = 'none';
+                    dashboardPage.style.display = 'block';
+                    
+                    // Update welcome message with student name
+                    welcomeStudent.textContent = `Welcome, ${studentCredentials[studentId].name}`;
+                    
+                    // Store login state in sessionStorage
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    sessionStorage.setItem('studentId', studentId);
+                    sessionStorage.setItem('studentName', studentCredentials[studentId].name);
+                }, 1500);
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        // Logout button handling
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Clear session storage
+            sessionStorage.removeItem('isLoggedIn');
+            sessionStorage.removeItem('studentId');
+            sessionStorage.removeItem('studentName');
+            
+            // Show landing page and hide dashboard
+            landingPage.style.display = 'block';
+            dashboardPage.style.display = 'none';
+            
+            // Reset form
+            loginForm.reset();
+        });
+        
+        // Classroom button handling
+        classroomBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get student ID from session
+            const studentId = sessionStorage.getItem('studentId');
+            const password = studentId ? studentCredentials[studentId]?.password : '';
+            
+            // Simple encryption using student credentials
+            const salt = `${studentId}:${password}`;
+            const encryptedLink = atob(encryptedClassroomLink);
+            
+            // Open in new tab
+            window.open(encryptedLink, '_blank');
+        });
+        
+        // Check if user is already logged in when page loads
+        window.addEventListener('load', function() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            
+            if (isLoggedIn === 'true') {
+                const studentId = sessionStorage.getItem('studentId');
+                const studentName = sessionStorage.getItem('studentName');
+                
+                landingPage.style.display = 'none';
+                dashboardPage.style.display = 'block';
+                
+                if (studentName) {
+                    welcomeStudent.textContent = `Welcome, ${studentName}`;
+                }
+            } else {
+                landingPage.style.display = 'block';
+                dashboardPage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
