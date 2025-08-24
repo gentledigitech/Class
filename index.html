@@ -100,7 +100,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQPSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
         }
         
         .hero-content {
@@ -397,6 +397,7 @@
             font-weight: 500;
             transition: all 0.3s;
             font-size: 14px;
+            margin: 5px;
         }
         
         .dashboard-btn:hover {
@@ -714,10 +715,10 @@
                     </div>
                     <div class="dashboard-card">
                         <i class="fas fa-tasks"></i>
-                        <h3>Assignments</h3>
+                        <h3>Past Questions</h3>
                         <p>View and submit your coursework with automatic deadline tracking</p>
-                        <a href="#" class="dashboard-btn">
-                            <i class="fas fa-clipboard-list"></i> View Assignments
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSflOUDNWUSYHzP-gqXMMI1UH3PDUaqZLcFVjjpNqbu1joONWQ/viewform?usp=header" class="dashboard-btn" target="_blank">
+                            <i class="fas fa-clipboard-list"></i> Access Questions
                         </a>
                     </div>
                     <div class="dashboard-card">
@@ -760,29 +761,30 @@
     <script>
         // Student credentials from the document (original)
         const studentCredentials = {
-            "ST09/001/26": { password: "26L7aB9", name: "Louisa Aboagye" },
-            "ST09/002/26": { password: "26FG8y2", name: "Franklin Adu Gyamfi" },
-            "ST09/003/26": { password: "26JO3d5", name: "Jedidiah Afriyie Osei Owusu" },
-            "ST09/004/26": { password: "26VD4u7", name: "Vanessa Agyemang Duah" },
-            "ST09/005/26": { password: "26GT6r1", name: "Gertrude Amponsem" },
-            "ST09/006/26": { password: "26CA9s3", name: "Christabel Antwi" },
-            "ST09/007/26": { password: "26SA5h8", name: "Shadrack Antwi" },
-            "ST09/008/26": { password: "26RJ4k6", name: "Ransford Appiah Kubi Junior" },
-            "ST09/009/26": { password: "26SB2m9", name: "Sabina Awasela" },
-            "ST09/010/26": { password: "26JA3n5", name: "Jonathan Boahen Adu" },
-            "ST09/011/26": { password: "26KA7p2", name: "Kingsley Boakye Adu" },
-            "ST09/012/26": { password: "26KE4f8", name: "Kingsley Effisah" },
-            "ST09/013/26": { password: "26RE1t6", name: "Richmond Effisah" },
-            "ST09/014/26": { password: "26FL5x9", name: "Felixlina Erskine" },
-            "ST09/015/26": { password: "26YA3w7", name: "Yaa Asantewaa Krampah" },
-            "ST09/016/26": { password: "26PM8b4", name: "Prince Mimpong" },
-            "ST09/017/26": { password: "26KO2v6", name: "Kluivert Opoku Sarpong" },
-            "ST09/018/26": { password: "26OB7c3", name: "Blessing Osei" },
-            "ST09/019/26": { password: "26OA9d1", name: "Alex Owusu Baffour" },
-            "ST09/020/26": { password: "26KB4j7", name: "Kelvin Owusu Boakye" },
-            "ST09/021/26": { password: "26DM5g2", name: "Daniella Sefa McJank" },
-            "ST09/022/26": { password: "26AB8q4", name: "Achiaa Blessing Yeboah" },
-            "ST09/023/26": { password: "26YM3n6", name: "Maritha Yeboah" },
+            "ST09/001/26": { password: "26L7aB9", name: "LOUISA ABOAGYE" },
+            "ST09/002/26": { password: "26FG8y2", name: "FRANKLIN ADU GYAMFI" },
+            "ST09/003/26": { password: "26JO3d5", name: "JEDIDIAH AFRIYIE OSEI OWUSU" },
+            "ST09/004/26": { password: "26VD4u7", name: "VANESSA AGYEMANG DUAH" },
+            "ST09/005/26": { password: "26GT6r1", name: "GERTRUDE AMPONSEM" },
+            "ST09/006/26": { password: "26CA9s3", name: "CHRISTABEL ANTWI" },
+            "ST09/007/26": { password: "26SA5h8", name: "SHADRACK ANTWI" },
+            "ST09/008/26": { password: "26RJ4k6", name: "RANSFORD APPIAH KUBI JUNIOR" },
+            "ST09/009/26": { password: "26SB2m9", name: "SABINA AWASELA" },
+            "ST09/010/26": { password: "26JA3n5", name: "JONATHAN BOAHENE ADU" },
+            "ST09/011/26": { password: "26KA7p2", name: "KINGSLEY BOAKYE ADU" },
+            "ST09/012/26": { password: "26KE4f8", name: "KINGSLEY EFFISAH" },
+            "ST09/013/26": { password: "26RE1t6", name: "RICHMOND EFFISAH" },
+            "ST09/014/26": { password: "26FL5x9", name: "FELIXLINA ERSKINE" },
+            "ST09/015/26": { password: "26YA3w7", name: "YAA ASANTEWAA KRAMPAH" },
+            "ST09/016/26": { password: "26PM8b4", name: "PRINCE MIMPONG" },
+            "ST09/017/26": { password: "26KO2v6", name: "KLUIVERT OPOKU SARPONG" },
+            "ST09/018/26": { password: "26OB7c3", name: "BLESSING OSEI" },
+            "ST09/019/26": { password: "26OA9d1", name: "ALEX OWUSU BAFFOUR" },
+            "ST09/020/26": { password: "26KB4j7", name: "KELVIN OWUSU BOAKYE" },
+            "ST09/021/26": { password: "26DM5g2", name: "DANIELLA SEFA MCJANK" },
+            "ST09/022/26": { password: "26AB8q4", name: "ACHIAA BLESSING YEBOAH" },
+            "ST09/023/26": { password: "26YM3n6", name: "MARITHA YEBOAH" },
+            "ST08/000/25": { password: "13MF4b2", name: "FIDELIS KONADU MARY" },
             
             // New credentials from the uploaded PDF
             "ST08/001/27": { password: "T9D2p01zK", name: "ACHEAMPONG PRINCE ADU" },
@@ -802,7 +804,7 @@
             "ST08/015/27": { password: "bN7mV2cX9z", name: "APPIAH RUTH" },
             "ST08/016/27": { password: "K81p00f9uY", name: "APPIAH STEPHEN" },
             "ST08/017/27": { password: "sD4f67hJ2k", name: "BADU KEREN" },
-            "ST08/018/27": { password: "r76yU8i03p", name: "BAIDEN ANASTASIA OWUSUWAA" },
+            "ST08/018/27": { password: "r76yU8i03p", name: "BAIDEN ANASTASIA OOWUSUWAA" },
             "ST08/019/27": { password: "W5e33dX8cF", name: "BEDIIDE RICHARD" },
             "ST08/020/27": { password: "L9p02iU1yT", name: "BONSU RHODALYN NYANTAKYIWAA" },
             "ST08/021/27": { password: "m74nB6vc8x", name: "DUAH EMMANUEL" },
