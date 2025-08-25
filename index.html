@@ -11,6 +11,7 @@
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
             --success-color: #2ecc71;
+            --curriculum-color: #2e7d32;
         }
         
         * {
@@ -100,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQPSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
         }
         
         .hero-content {
@@ -219,6 +220,23 @@
             font-size: 1.4rem;
         }
         
+        .timetable-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .timetable-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
         .login-section {
             padding: 80px 0;
             background-color: #f9f9f9;
@@ -289,6 +307,15 @@
         
         .error-message {
             color: var(--accent-color);
+            margin-top: 15px;
+            text-align: center;
+            display: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            color: var(--success-color);
             margin-top: 15px;
             text-align: center;
             display: none;
@@ -440,6 +467,211 @@
             color: #666;
         }
         
+        /* Curriculum Presentation Styles */
+        .curriculum-container {
+            display: none;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .curriculum-header {
+            text-align: center;
+            padding: 20px 0;
+            background: var(--curriculum-color);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .curriculum-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .curriculum-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .slides-container {
+            position: relative;
+            min-height: 600px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-header {
+            background: var(--curriculum-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: -30px -30px 25px -30px;
+        }
+        
+        .slide-content {
+            padding: 10px;
+        }
+        
+        .curriculum-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .curriculum-table th, .curriculum-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .curriculum-table th {
+            background-color: #4caf50;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .curriculum-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .curriculum-table tr:hover {
+            background-color: #f1f8e9;
+        }
+        
+        .curriculum-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .curriculum-nav-btn {
+            background: var(--curriculum-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .curriculum-nav-btn:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
+        
+        .curriculum-nav-btn i {
+            margin: 0 5px;
+        }
+        
+        .slide-indicators {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background: #c8e6c9;
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .indicator.active {
+            background: var(--curriculum-color);
+            transform: scale(1.2);
+        }
+        
+        .grade-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .grade-tab {
+            padding: 12px 25px;
+            background: #e8f5e9;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .grade-tab.active {
+            background: var(--curriculum-color);
+            color: white;
+        }
+        
+        .back-to-dashboard {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+            max-width: 250px;
+        }
+        
+        .back-to-dashboard:hover {
+            background: #1a252f;
+        }
+        
+        @media (max-width: 768px) {
+            .curriculum-header h1 {
+                font-size: 2rem;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+            
+            .curriculum-table th, .curriculum-table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .curriculum-nav-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .grade-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -580,7 +812,7 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1>Advanced Social Studies Learning Platform</h1>
-                <p>Access interactive curriculum, collaborate with peers, and enhance your understanding of ghanaian & global societies through our innovative digital platform.</p>
+                <p>Access interactive curriculum, collaborate with peers, and enhance your understanding of Ghanaian & global societies through our innovative digital platform.</p>
                 <a href="#login" class="btn">Student Login</a>
             </div>
         </section>
@@ -592,15 +824,15 @@
                     <div class="feature-card">
                         <i class="fas fa-globe-americas"></i>
                         <h3>Global Curriculum</h3>
-                        <p>Comprehensive coverage of ghanaian cultures, histories, and political systems with interactive content.</p>
+                        <p>Comprehensive coverage of Ghanaian cultures, histories, and political systems with interactive content.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <h3>Expert Instruction</h3>
                         <p>Learn from certified facilitators specializing in social studies education and digital pedagogy.</p>
-                            <a href="https://ibb.co/whzS9774" class="timetable-btn" target="_blank">
-                                <i class="fas fa-clock"></i> View Timetable
-                           </a>
+                        <a href="https://ibb.co/whzS9774" class="timetable-btn" target="_blank">
+                            <i class="fas fa-clock"></i> View Timetable
+                       </a>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-vr-cardboard"></i>
@@ -627,6 +859,9 @@
                         <button type="submit" class="login-btn">Access Learning Portal</button>
                         <div class="error-message" id="errorMessage">
                             <i class="fas fa-exclamation-circle"></i> Invalid credentials. Please try again.
+                        </div>
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i> Login successful! Redirecting...
                         </div>
                         <div class="loading" id="loadingIndicator">
                             <div class="loading-spinner"></div>
@@ -743,11 +978,11 @@
                         </a>
                     </div>
                     <div class="dashboard-card">
-                        <i class="fas fa-question-circle"></i>
-                        <h3>Help Center</h3>
-                        <p>Technical support and academic assistance resources</p>
-                        <a href="#" class="dashboard-btn">
-                            <i class="fas fa-life-ring"></i> Get Help
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Curriculum Overview</h3>
+                        <p>Explore the B7, B8, and B9 Social Studies curriculum structure</p>
+                        <a href="#" class="dashboard-btn" id="curriculumBtn">
+                            <i class="fas fa-book"></i> View Curriculum
                         </a>
                     </div>
                 </div>
@@ -761,6 +996,295 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Curriculum Presentation Page (Hidden by default) -->
+    <div id="curriculumPage" class="curriculum-container">
+        <button class="back-to-dashboard" id="backToDashboard"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+        
+        <div class="curriculum-header">
+            <h1>Social Studies Curriculum Overview</h1>
+            <p>B7, B8, and B9 Annual Scheme of Learning</p>
+        </div>
+        
+        <div class="grade-tabs">
+            <div class="grade-tab active" data-grade="b7">Grade B7</div>
+            <div class="grade-tab" data-grade="b8">Grade B8</div>
+            <div class="grade-tab" data-grade="b9">Grade B9</div>
+        </div>
+        
+        <div class="slides-container">
+            <!-- B7 Slides -->
+            <div class="slide active" id="b7-slide1">
+                <div class="slide-header">
+                    <h2>B7 - Annual Scheme Overview</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Weeks</th>
+                            <th>Term 1</th>
+                            <th>Term 2</th>
+                            <th>Term 3</th>
+                        </tr>
+                        <tr>
+                            <td>1-2</td>
+                            <td>Environmental Issues</td>
+                            <td>Mapping Skills</td>
+                            <td>Population</td>
+                        </tr>
+                        <tr>
+                            <td>3-4</td>
+                            <td>Environmental Issues</td>
+                            <td>Understanding Our Natural World</td>
+                            <td>Citizenship & Human Rights</td>
+                        </tr>
+                        <tr>
+                            <td>5-6</td>
+                            <td>Environmental Issues</td>
+                            <td>Understanding Our Natural World</td>
+                            <td>Financial And Investment Issues</td>
+                        </tr>
+                        <tr>
+                            <td>7-9</td>
+                            <td>Mapping Skills</td>
+                            <td>Socialization / Human Resource Development</td>
+                            <td>Independent Ghana</td>
+                        </tr>
+                        <tr>
+                            <td>10-12</td>
+                            <td>Adolescent Reproductive Health</td>
+                            <td>Tourism / Financial And Investment Issues</td>
+                            <td>Independent Ghana</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="slide" id="b7-slide2">
+                <div class="slide-header">
+                    <h2>B7 - Term 1 Detailed Scheme</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Week</th>
+                            <th>Strand</th>
+                            <th>Sub Strand</th>
+                            <th>Resources</th>
+                        </tr>
+                        <tr>
+                            <td>1-3</td>
+                            <td>Environment</td>
+                            <td>Environmental Issues</td>
+                            <td>Posters on sanitation, energy sources</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>Environment</td>
+                            <td>Environmental Issues</td>
+                            <td>Posters on energy sources, adolescent development</td>
+                        </tr>
+                        <tr>
+                            <td>7-9</td>
+                            <td>Environment</td>
+                            <td>Mapping Skills</td>
+                            <td>Posters on children's activities</td>
+                        </tr>
+                        <tr>
+                            <td>10-12</td>
+                            <td>Family Life</td>
+                            <td>Adolescent Reproductive Health</td>
+                            <td>Posters on children's activities</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- B8 Slides -->
+            <div class="slide" id="b8-slide1">
+                <div class="slide-header">
+                    <h2>B8 - Annual Scheme Overview</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Weeks</th>
+                            <th>Term 1</th>
+                            <th>Term 2</th>
+                            <th>Term 3</th>
+                        </tr>
+                        <tr>
+                            <td>1-3</td>
+                            <td>Environmental Issues</td>
+                            <td>Citizenship</td>
+                            <td>Understanding our Natural World</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>The Family</td>
+                            <td>Population / Conflict Prevention</td>
+                            <td>Understanding our Natural World</td>
+                        </tr>
+                        <tr>
+                            <td>7-9</td>
+                            <td>The Individual & the Community</td>
+                            <td>The Republics</td>
+                            <td>Financial & Investment Issues</td>
+                        </tr>
+                        <tr>
+                            <td>10-12</td>
+                            <td>Mapping skills</td>
+                            <td>The Republics</td>
+                            <td>Tourism</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="slide" id="b8-slide2">
+                <div class="slide-header">
+                    <h2>B8 - Term 1 Detailed Scheme</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Week</th>
+                            <th>Strand</th>
+                            <th>Sub Strand</th>
+                            <th>Resources</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Environment</td>
+                            <td>Water Pollution</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>2-3</td>
+                            <td>Environment</td>
+                            <td>Conserving Energy</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>Family Life</td>
+                            <td>The Family System / Inheritance</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>7-9</td>
+                            <td>Sense Of Purpose</td>
+                            <td>Individual, Community & Development</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>10-12</td>
+                            <td>Map skills</td>
+                            <td>Human Rights</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- B9 Slides -->
+            <div class="slide" id="b9-slide1">
+                <div class="slide-header">
+                    <h2>B9 - Annual Scheme Overview</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Weeks</th>
+                            <th>Term 1</th>
+                            <th>Term 2</th>
+                            <th>Term 3</th>
+                        </tr>
+                        <tr>
+                            <td>1-3</td>
+                            <td>Environmental Issues</td>
+                            <td>Peace and security</td>
+                            <td>Republics</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>The Family</td>
+                            <td>Population / Promoting democracy</td>
+                            <td>Republics / Financial and investment</td>
+                        </tr>
+                        <tr>
+                            <td>7-10</td>
+                            <td>Culture and identity / 1992 constitution</td>
+                            <td>Promoting democracy / Science and technology</td>
+                            <td>Financial and investment</td>
+                        </tr>
+                        <tr>
+                            <td>11-12</td>
+                            <td>Natural and human resources</td>
+                            <td>The Republics</td>
+                            <td>Financial and investment</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="slide" id="b9-slide2">
+                <div class="slide-header">
+                    <h2>B9 - Term 1 Detailed Scheme</h2>
+                </div>
+                <div class="slide-content">
+                    <table class="curriculum-table">
+                        <tr>
+                            <th>Week</th>
+                            <th>Strand</th>
+                            <th>Sub Strand</th>
+                            <th>Resources</th>
+                        </tr>
+                        <tr>
+                            <td>1-3</td>
+                            <td>Environment</td>
+                            <td>Environment issues</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>4-6</td>
+                            <td>Family Life</td>
+                            <td>The Family System</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>7-8</td>
+                            <td>Sense Of Purpose</td>
+                            <td>Culture and identity</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>9-10</td>
+                            <td>Law and order</td>
+                            <td>The 1992 constitution</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                        <tr>
+                            <td>11-12</td>
+                            <td>Environment</td>
+                            <td>Natural and human resources</td>
+                            <td>Pictures and Charts</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+        </div>
+        
+        <div class="curriculum-nav-buttons">
+            <button class="curriculum-nav-btn" id="curriculum-prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+            <button class="curriculum-nav-btn" id="curriculum-next-btn">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 
     <script>
@@ -835,104 +1359,208 @@
             "ST08/041/27": { password: "mM2bV3cX4z", name: "YEBOAH VINCENT AGYEI" }
         };
 
-        // Encrypted Google Classroom link (Base64 encoded)
-        const encryptedClassroomLink = "aHR0cHM6Ly9jbGFzc3Jvb20uZ29vZ2xlLmNvbS9jL044ODQ2ODU2MzM4NTY2P2NqYz02emxtdXVyeQ==";
-        
-        // DOM elements
-        const landingPage = document.getElementById('landingPage');
-        const dashboardPage = document.getElementById('dashboardPage');
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const classroomBtn = document.getElementById('classroomBtn');
-        const welcomeStudent = document.getElementById('welcomeStudent');
-        
-        // Login form handling
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const landingPage = document.getElementById('landingPage');
+            const dashboardPage = document.getElementById('dashboardPage');
+            const curriculumPage = document.getElementById('curriculumPage');
+            const welcomeStudent = document.getElementById('welcomeStudent');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const classroomBtn = document.getElementById('classroomBtn');
+            const curriculumBtn = document.getElementById('curriculumBtn');
+            const backToDashboard = document.getElementById('backToDashboard');
             
-            const studentId = document.getElementById('studentId').value.trim().toUpperCase();
-            const password = document.getElementById('password').value;
+            // Curriculum presentation elements
+            const gradeTabs = document.querySelectorAll('.grade-tab');
+            const slides = document.querySelectorAll('#curriculumPage .slide');
+            const indicators = document.querySelectorAll('#curriculumPage .indicator');
+            const prevBtn = document.getElementById('curriculum-prev-btn');
+            const nextBtn = document.getElementById('curriculum-next-btn');
             
-            // Hide error message if previously shown
-            errorMessage.style.display = 'none';
+            let currentSlide = 0;
+            let currentGrade = 'b7';
             
-            if (studentCredentials[studentId] && studentCredentials[studentId].password === password) {
-                // Show loading indicator
+            // Check if user is already logged in
+            const savedStudentId = localStorage.getItem('studentId');
+            if (savedStudentId && studentCredentials[savedStudentId]) {
+                showDashboard(savedStudentId);
+            }
+
+            // Login form handling
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const studentId = document.getElementById('studentId').value.trim().toUpperCase();
+                const password = document.getElementById('password').value;
+                
+                // Hide any previous messages
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
                 loadingIndicator.style.display = 'flex';
                 
-                // Simulate authentication delay
+                // Simulate network delay for authentication
                 setTimeout(function() {
-                    // Hide landing page and show dashboard
-                    landingPage.style.display = 'none';
-                    dashboardPage.style.display = 'block';
-                    
-                    // Update welcome message with student name
-                    welcomeStudent.textContent = `Welcome, ${studentCredentials[studentId].name}`;
-                    
-                    // Store login state in sessionStorage
-                    sessionStorage.setItem('isLoggedIn', 'true');
-                    sessionStorage.setItem('studentId', studentId);
-                    sessionStorage.setItem('studentName', studentCredentials[studentId].name);
-                }, 1500);
-            } else {
-                // Show error message
-                errorMessage.style.display = 'block';
-            }
-        });
-        
-        // Logout button handling
-        logoutBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+                    if (studentCredentials[studentId] && studentCredentials[studentId].password === password) {
+                        // Successful login
+                        successMessage.style.display = 'block';
+                        loadingIndicator.style.display = 'none';
+                        
+                        // Save login state
+                        localStorage.setItem('studentId', studentId);
+                        
+                        // Redirect to dashboard after a brief delay
+                        setTimeout(function() {
+                            showDashboard(studentId);
+                        }, 1500);
+                    } else {
+                        // Failed login
+                        errorMessage.style.display = 'block';
+                        loadingIndicator.style.display = 'none';
+                    }
+                }, 1000);
+            });
             
-            // Clear session storage
-            sessionStorage.removeItem('isLoggedIn');
-            sessionStorage.removeItem('studentId');
-            sessionStorage.removeItem('studentName');
+            // Logout button handling
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('studentId');
+                showLandingPage();
+            });
             
-            // Show landing page and hide dashboard
-            landingPage.style.display = 'block';
-            dashboardPage.style.display = 'none';
+            // Classroom button handling
+            classroomBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const studentId = localStorage.getItem('studentId');
+                if (studentId) {
+                    // Simple encryption for demo purposes (not secure for production)
+                    const encryptedId = btoa(studentId);
+                    window.open(`https://classroom.google.com?authuser=${encryptedId}`, '_blank');
+                }
+            });
             
-            // Reset form
-            loginForm.reset();
-        });
-        
-        // Classroom button handling
-        classroomBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+            // Curriculum button handling
+            curriculumBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showCurriculum();
+            });
             
-            // Get student ID from session
-            const studentId = sessionStorage.getItem('studentId');
-            const password = studentId ? studentCredentials[studentId]?.password : '';
+            // Back to dashboard button handling
+            backToDashboard.addEventListener('click', function(e) {
+                e.preventDefault();
+                showDashboard(localStorage.getItem('studentId'));
+            });
             
-            // Simple encryption using student credentials
-            const salt = `${studentId}:${password}`;
-            const encryptedLink = atob(encryptedClassroomLink);
-            
-            // Open in new tab
-            window.open(encryptedLink, '_blank');
-        });
-        
-        // Check if user is already logged in when page loads
-        window.addEventListener('load', function() {
-            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            
-            if (isLoggedIn === 'true') {
-                const studentId = sessionStorage.getItem('studentId');
-                const studentName = sessionStorage.getItem('studentName');
-                
+            // Function to show dashboard
+            function showDashboard(studentId) {
                 landingPage.style.display = 'none';
                 dashboardPage.style.display = 'block';
-                
-                if (studentName) {
-                    welcomeStudent.textContent = `Welcome, ${studentName}`;
-                }
-            } else {
-                landingPage.style.display = 'block';
-                dashboardPage.style.display = 'none';
+                curriculumPage.style.display = 'none';
+                welcomeStudent.textContent = `Welcome, ${studentCredentials[studentId].name}`;
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
             }
+            
+            // Function to show landing page
+            function showLandingPage() {
+                dashboardPage.style.display = 'none';
+                curriculumPage.style.display = 'none';
+                landingPage.style.display = 'block';
+                document.getElementById('loginForm').reset();
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            
+            // Function to show curriculum
+            function showCurriculum() {
+                dashboardPage.style.display = 'none';
+                curriculumPage.style.display = 'block';
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                
+                // Initialize curriculum presentation
+                showCurriculumSlide(0, 'b7');
+            }
+            
+            // Curriculum presentation functions
+            function showCurriculumSlide(n, grade = null) {
+                if (grade) {
+                    currentGrade = grade;
+                    currentSlide = 0;
+                }
+                
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Show current slide
+                document.getElementById(`${currentGrade}-slide${currentSlide + 1}`).classList.add('active');
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next curriculum slide
+            function nextCurriculumSlide() {
+                if (currentSlide < 1) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                showCurriculumSlide(currentSlide);
+            }
+            
+            // Previous curriculum slide
+            function prevCurriculumSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                } else {
+                    currentSlide = 1;
+                }
+                showCurriculumSlide(currentSlide);
+            }
+            
+            // Event listeners for curriculum navigation
+            nextBtn.addEventListener('click', nextCurriculumSlide);
+            prevBtn.addEventListener('click', prevCurriculumSlide);
+            
+            // Grade tabs event listeners
+            gradeTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    gradeTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    showCurriculumSlide(0, this.getAttribute('data-grade'));
+                });
+            });
+            
+            // Indicator event listeners
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    currentSlide = parseInt(this.getAttribute('data-slide'));
+                    showCurriculumSlide(currentSlide);
+                });
+            });
+            
+            // Keyboard navigation for curriculum
+            document.addEventListener('keydown', function(e) {
+                if (curriculumPage.style.display === 'block') {
+                    if (e.key === 'ArrowRight') {
+                        nextCurriculumSlide();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevCurriculumSlide();
+                    }
+                }
+            });
         });
     </script>
 </body>
